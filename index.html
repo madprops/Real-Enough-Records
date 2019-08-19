@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>Real Enough Records</title>
+    <link rel="shortcut icon" href="favicon.png?v=3" type="image/x-icon">
+    <link href='style.css?v=1' rel='stylesheet' type='text/css' />
+    <script src='lib/tone.min.js?v=1'></script>
+    <script src="lib/seedrandom.min.js?v=1"></script>
+    <script src='lib/typed.min.js?v=1'></script>
+    <script src='lib/jdenticon.min.js?v=1'></script>
+    <script src='script.js?v=1'></script>
+    <script src='songs.js?v=1'></script>
+    <script src='data/words.js?v=1'></script>
+    <script src='data/countries.js?v=1'></script>
+    <script src='data/names.js?v=1'></script>
+    <script>
+      window.onload = function()
+      {
+        R.init()
+      }
+    </script>
+  </head>
+  <body>
+    <div id='main' class='main'>
+
+      <div id='title'></div>
+
+      <div id='content' class='content'>
+
+        <div class='label'>Name</div>
+        <input type='text' placeholder="..." id='band_name'>
+
+        <div class='label'>Stimulant</div>
+        <div id='stimulants' class='stimulants_active'>
+          <div data-type='booze' class='stimulant'>
+            <img src='img/booze.png'>
+          </div>
+          <div data-type='pills' class='stimulant'>
+            <img src='img/pills.png'>
+          </div>
+          <div data-type='love' class='stimulant'>
+            <img src='img/love.png'>
+          </div>            
+          <div data-type='weed' class='stimulant'>
+            <img src='img/weed.png'>
+          </div>            
+          <div data-type='coffee' class='stimulant'>
+            <img src='img/coffee.png'>
+          </div>            
+        </div>
+
+        <div class='label'>Experience</div>
+        <div id='entropy_box'>
+          <div id='entropy_text'></div>
+          <img src='img/check.png' id='entropy_checkmark'>
+        </div>
+
+        <div class='label' id='sign_message'>Sign To A Record Label</div>
+        <input type='checkbox' id='sign_checkbox'>
+
+        <div id='create' class='action'>Create</div>
+
+      </div>
+
+    </div>
+
+    <div id='main_2' class='main'>
+      <div id='gen_band_name'></div>
+      <div id='content_2' class='content'>
+        <canvas id='avatar'></canvas>
+        <div class='infoline'>
+          <div>Popular In:</div>
+          <div id='country'></div>
+        </div>
+        <div class='label2'>Members</div>
+        <div id='members'></div>
+        <div class='label2'>Hits</div>
+        <div id='songs'></div>
+      </div>
+      <div id='share_link_label' class='label'>Share Link</div>
+      <input id='share_link_input' type='text'>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+:root 
+{
+	--bg-color-1: #36393f;
+	--bg-color-2: #374147;
+	--bg-color-3: #566a64;
+	--bg-color-4: #6eb3a4;
+}
+
+@font-face
+{
+	font-family: imported_font;
+	src: url(fonts/SpecialElite-Regular.ttf);
+}
+
+body, html
+{
+  background-color: var(--bg-color-1);
+  color: lightseagreen;
+  font-family: 'imported_font', sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100vw;
+}
+
+.main
+{
+  position: absolute;
+  top: 50%;
+  transition: top 800ms linear;
+  min-width: 100%;
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#main_2
+{
+  display: none;
+  top: 50px;
+}
+
+#title
+{
+  font-size: 1.2rem;
+}
+
+.content
+{
+  display: flex;
+  opacity: 0;
+  transition: opacity 1s linear;
+  background-color: var(--bg-color-2);
+  padding: 25px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#content
+{
+  display: none;
+}
+
+#content_2
+{
+  margin-bottom: 0;
+}
+
+#band_name
+{
+  text-align: center;
+  padding: 5px;
+  width: 280px;
+  font-size: 1rem;
+  background-color: var(--bg-color-3);
+  color: white;
+  border: 0px solid grey;
+}
+
+#stimulants
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.stimulant
+{
+  background-color: var(--bg-color-3);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.stimulant > img
+{
+  width: 80%;
+  height: auto;
+}
+
+.stimulants_active .stimulant
+{
+  cursor: pointer;
+}
+
+.stimulants_active .stimulant:hover
+{
+  background-color: var(--bg-color-4);
+}
+
+.chosen_stimulant
+{
+  background-color: var(--bg-color-4);
+}
+
+.label
+{
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.label2
+{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+
+.label:first-child
+{
+  margin-top: 0;
+}
+
+.label2:first-child
+{
+  margin-top: 0;
+}
+
+#entropy_box
+{
+  width: 300px;
+  height: 300px;
+  background-color: var(--bg-color-3);
+  cursor: crosshair;
+  font-size: 0.9rem;
+  word-break: break-all;
+  overflow: hidden;
+  position: relative;
+}
+
+#entropy_checkmark
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+}
+
+input[type=text], input[type=checkbox]
+{
+  outline: none;
+}
+
+#create
+{
+  font-size: 1.4rem;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.action
+{
+    transition: text-shadow 500ms, box-shadow 500ms
+}
+
+.action:hover
+{
+    text-shadow: 0 0 10px currentColor;
+}
+
+#songs
+{
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 30px;
+}
+
+.song_play_button
+{
+  color: #2c2c2c;
+  background-color: #ced5ec;
+  border: 4px solid gray;
+  outline: none;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.song_play_button_playing
+{
+  border: 4px solid #cd6bb7;
+}
+
+#gen_band_name
+{
+  font-size: 1.4rem;
+}
+
+.infoline
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.infoline > div:first-child
+{
+  margin-right: 10px;
+}
+
+#members
+{
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 5px;
+}
+
+#avatar
+{
+  margin-bottom: 50px;
+}
+
+#share_link_input
+{
+  width: 200px;
+  background-color: var(--bg-color-3);
+  color: var(--bg-color-4);
+  padding: 5px;
+  font-size: 0.8rem;
+  margin-bottom: 50px;
+  border: 0px solid grey;
+  text-align: center;
+}
