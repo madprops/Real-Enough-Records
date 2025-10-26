@@ -179,7 +179,7 @@ input[type=text], input[type=checkbox] {
   outline: none;
   cursor: pointer;
   margin-top: 8px;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .song_play_button_playing {
@@ -228,5 +228,5 @@ input[type=text], input[type=checkbox] {
 
 #play_all_button {
   padding: 5px 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
