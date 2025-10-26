@@ -336,17 +336,18 @@ R.Songs.play = (num) => {
   R.Songs.loop2 = R.Songs[`loop_${ls2}`]
 
   let start_loop = (loop) => {
+    if (!loop || !loop.buffer) {
+      return
+    }
+
     if (loop.buffer.loaded) {
       loop.start()
     }
     else {
-      if (typeof loop.once === `function`) {
-        loop.once(`load`, () => {
+      loop.buffer.onload = () => {
+        if (R.Songs.current_song >= 0) {
           loop.start()
-        })
-      } else {
-        // fallback: just try to start after a short delay
-        setTimeout(() => loop.start(), 200)
+        }
       }
     }
   }
@@ -358,8 +359,15 @@ R.Songs.play = (num) => {
 R.Songs.stop = () => {
   clearInterval(R.Songs.synth_1_interval)
   clearInterval(R.Songs.synth_2_interval)
-  R.Songs.loop1.stop()
-  R.Songs.loop2.stop()
+
+  if (R.Songs.loop1 && R.Songs.loop1.state === `started`) {
+    R.Songs.loop1.stop()
+  }
+
+  if (R.Songs.loop2 && R.Songs.loop2.state === `started`) {
+    R.Songs.loop2.stop()
+  }
+
   R.Songs.current_song = -1
 
   for (let i = 0; i < 10; i++) {
