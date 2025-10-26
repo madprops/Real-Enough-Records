@@ -192,7 +192,7 @@ R.Songs.create_instruments = () => {
     modulationIndex: 3.5,
     carrier: {
       oscillator: {
-        type: custom,
+        type: `custom`,
         partials: [0, 1, 0, 2]
       },
       envelope: {
