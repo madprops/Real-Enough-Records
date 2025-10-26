@@ -134,7 +134,7 @@ R.play_all_songs = async () => {
 
   if (play_all_button) {
     play_all_button.disabled = true
-    play_all_button.textContent = `Playing...`
+    play_all_button.textContent = `Playing`
   }
 
   for (let i = 0; i < total; i++) {
