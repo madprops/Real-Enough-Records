@@ -219,6 +219,7 @@ R.prepare_band = (bn, hash) => {
   jdenticon()
   let url = `${window.location.origin}${window.location.pathname}?bname=${encodeURIComponent(bn)}&hash=${R.hash}`
   R.$(`#share_link_input`).value = url
+  document.title = R.camel(bn)
 
   // Set the current location to the share url if protocol is http(s)
   if (window.location.protocol === `http:` || window.location.protocol === `https:`) {
