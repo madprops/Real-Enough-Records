@@ -1,19 +1,16 @@
-:root 
-{
-	--bg-color-1: #36393f;
-	--bg-color-2: #374147;
-	--bg-color-3: #566a64;
-	--bg-color-4: #6eb3a4;
+:root {
+  --bg-color-1: #36393f;
+  --bg-color-2: #374147;
+  --bg-color-3: #566a64;
+  --bg-color-4: #6eb3a4;
 }
 
-@font-face
-{
-	font-family: imported_font;
-	src: url(fonts/SpecialElite-Regular.ttf);
+@font-face {
+  font-family: imported_font;
+  src: url(fonts/SpecialElite-Regular.ttf);
 }
 
-body, html
-{
+body, html {
   background-color: var(--bg-color-1);
   color: lightseagreen;
   font-family: 'imported_font', sans-serif;
@@ -24,8 +21,7 @@ body, html
   width: 100vw;
 }
 
-.main
-{
+.main {
   position: absolute;
   top: 50%;
   transition: top 800ms linear;
@@ -38,19 +34,16 @@ body, html
   justify-content: center;
 }
 
-#main_2
-{
+#main_2 {
   display: none;
   top: 50px;
 }
 
-#title
-{
+#title {
   font-size: 1.2rem;
 }
 
-.content
-{
+.content {
   display: flex;
   opacity: 0;
   transition: opacity 1s linear;
@@ -63,18 +56,15 @@ body, html
   justify-content: center;
 }
 
-#content
-{
+#content {
   display: none;
 }
 
-#content_2
-{
+#content_2 {
   margin-bottom: 0;
 }
 
-#band_name
-{
+#band_name {
   text-align: center;
   padding: 5px;
   width: 280px;
@@ -84,17 +74,15 @@ body, html
   border: 0px solid grey;
 }
 
-#stimulants
-{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+#stimulants {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.stimulant
-{
+.stimulant {
   background-color: var(--bg-color-3);
   width: 100px;
   height: 100px;
@@ -104,53 +92,44 @@ body, html
   margin: 5px;
 }
 
-.stimulant > img
-{
+.stimulant>img {
   width: 80%;
   height: auto;
 }
 
-.stimulants_active .stimulant
-{
+.stimulants_active .stimulant {
   cursor: pointer;
 }
 
-.stimulants_active .stimulant:hover
-{
+.stimulants_active .stimulant:hover {
   background-color: var(--bg-color-4);
 }
 
-.chosen_stimulant
-{
+.chosen_stimulant {
   background-color: var(--bg-color-4);
 }
 
-.label
-{
+.label {
   margin-top: 50px;
   margin-bottom: 10px;
 }
 
-.label2
-{
+.label2 {
   margin-top: 50px;
   margin-bottom: 30px;
   font-size: 1.1rem;
   text-decoration: underline;
 }
 
-.label:first-child
-{
+.label:first-child {
   margin-top: 0;
 }
 
-.label2:first-child
-{
+.label2:first-child {
   margin-top: 0;
 }
 
-#entropy_box
-{
+#entropy_box {
   width: 300px;
   height: 300px;
   background-color: var(--bg-color-3);
@@ -161,8 +140,7 @@ body, html
   position: relative;
 }
 
-#entropy_checkmark
-{
+#entropy_checkmark {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -170,80 +148,68 @@ body, html
   display: none;
 }
 
-input[type=text], input[type=checkbox]
-{
+input[type=text], input[type=checkbox] {
   outline: none;
 }
 
-#create
-{
+#create {
   font-size: 1.4rem;
   margin-top: 50px;
   cursor: pointer;
 }
 
-.action
-{
-    transition: text-shadow 500ms, box-shadow 500ms
+.action {
+  transition: text-shadow 500ms, box-shadow 500ms
 }
 
-.action:hover
-{
-    text-shadow: 0 0 10px currentColor;
+.action:hover {
+  text-shadow: 0 0 10px currentColor;
 }
 
-#songs
-{
+#songs {
   display: grid;
   grid-auto-flow: row;
   grid-gap: 30px;
 }
 
-.song_play_button
-{
+.song_play_button {
   color: #2c2c2c;
   background-color: #ced5ec;
   border: 4px solid gray;
   outline: none;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 8px;
+  font-size: 1rem;
 }
 
-.song_play_button_playing
-{
+.song_play_button_playing {
   border: 4px solid #cd6bb7;
 }
 
-#gen_band_name
-{
+#gen_band_name {
   font-size: 1.4rem;
 }
 
-.infoline
-{
+.infoline {
   display: flex;
   flex-direction: row;
 }
 
-.infoline > div:first-child
-{
+.infoline>div:first-child {
   margin-right: 10px;
 }
 
-#members
-{
+#members {
   display: grid;
   grid-auto-flow: row;
   grid-gap: 5px;
 }
 
-#avatar
-{
+#avatar {
   margin-bottom: 50px;
 }
 
-#share_link_input
-{
+#share_link_input {
   width: 200px;
   background-color: var(--bg-color-3);
   color: var(--bg-color-4);
@@ -252,4 +218,15 @@ input[type=text], input[type=checkbox]
   margin-bottom: 50px;
   border: 0px solid grey;
   text-align: center;
+}
+
+#play_all_div {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#play_all_button {
+  padding: 5px 5px;
+  font-size: 1rem;
 }

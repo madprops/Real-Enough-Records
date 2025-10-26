@@ -5,6 +5,7 @@ R.entropy_created = false
 R.chosen_stimulant = false
 R.started = false
 R.hash_length = 12
+R.play_all_delay = 10 * 1000
 
 R.init = () => {
   let mode = R.check_mode()
@@ -105,6 +106,49 @@ R.show_intro = () => {
   new Typed(`#title`, options)
 }
 
+R.add_play_all_button = () => {
+  let members = R.$(`#members`)
+  if (!members || R.$(`#play_all_button`)) {
+    return
+  }
+
+  let play_all_div = document.createElement(`div`)
+  play_all_div.id = `play_all_div`
+
+  let play_all_button = document.createElement(`button`)
+  play_all_button.id = `play_all_button`
+  play_all_button.textContent = `Play All`
+
+  play_all_div.append(play_all_button)
+  members.appendChild(play_all_div)
+
+  play_all_button.addEventListener(`click`, () => {
+    R.play_all_songs()
+  })
+}
+
+R.play_all_songs = async () => {
+  let total = 10
+  let delay = R.play_all_delay
+  let play_all_button = R.$(`#play_all_button`)
+
+  if (play_all_button) {
+    play_all_button.disabled = true
+    play_all_button.textContent = `Playing...`
+  }
+
+  for (let i = 0; i < total; i++) {
+    R.Songs.play(i)
+    await new Promise(r => setTimeout(r, delay))
+    R.Songs.stop()
+  }
+
+  if (play_all_button) {
+    play_all_button.disabled = false
+    play_all_button.textContent = `Play All`
+  }
+}
+
 R.start_mouse_detection = () => {
   let eb = R.$(`#entropy_box`)
   let ebt = R.$(`#entropy_text`)
@@ -173,13 +217,19 @@ R.prepare_band = (bn, hash) => {
   R.show_members()
   R.$(`#avatar`).dataset.jdenticonValue = R.hash
   jdenticon()
-  let url = `${document.location.href}?bname=${encodeURIComponent(bn)}&hash=${R.hash}`
+  let url = `${window.location.origin}${window.location.pathname}?bname=${encodeURIComponent(bn)}&hash=${R.hash}`
   R.$(`#share_link_input`).value = url
+
+  // Set the current location to the share url if protocol is http(s)
+  if (window.location.protocol === `http:` || window.location.protocol === `https:`) {
+    window.history.replaceState(null, ``, url)
+  }
 
   gbn.textContent = `Nice`
   R.$(`#content`).style.opacity = 0
 
   R.Songs.start()
+  R.add_play_all_button()
   window.scrollTo(0, 0)
 
   setTimeout(() => {

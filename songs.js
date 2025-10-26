@@ -340,9 +340,14 @@ R.Songs.play = (num) => {
       loop.start()
     }
     else {
-      loop.buffer.once(`load`, () => {
-        loop.start()
-      })
+      if (typeof loop.once === `function`) {
+        loop.once(`load`, () => {
+          loop.start()
+        })
+      } else {
+        // fallback: just try to start after a short delay
+        setTimeout(() => loop.start(), 200)
+      }
     }
   }
 
