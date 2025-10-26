@@ -335,8 +335,19 @@ R.Songs.play = (num) => {
   R.Songs.loop1 = R.Songs[`loop_${ls1}`]
   R.Songs.loop2 = R.Songs[`loop_${ls2}`]
 
-  R.Songs.loop1.start()
-  R.Songs.loop2.start()
+  let start_loop = (loop) => {
+    if (loop.buffer.loaded) {
+      loop.start()
+    }
+    else {
+      loop.buffer.once(`load`, () => {
+        loop.start()
+      })
+    }
+  }
+
+  start_loop(R.Songs.loop1)
+  start_loop(R.Songs.loop2)
 }
 
 R.Songs.stop = () => {
