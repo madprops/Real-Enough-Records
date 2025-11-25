@@ -152,6 +152,11 @@ input[type=text], input[type=checkbox] {
   outline: none;
 }
 
+#sign_checkbox {
+  width: 20px;
+  height: 20px;
+}
+
 #create {
   font-size: 1.4rem;
   margin-top: 50px;
@@ -180,6 +185,7 @@ input[type=text], input[type=checkbox] {
   cursor: pointer;
   margin-top: 8px;
   font-size: 0.9rem;
+  user-select: none;
 }
 
 .song_play_button_playing {
